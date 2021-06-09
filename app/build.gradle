@@ -1,0 +1,172 @@
+apply plugin: 'com.android.application'
+
+// Apply the Crashlytics Gradle plugin : using firebase to report crashes for this project
+apply plugin: 'com.google.firebase.crashlytics'
+//using object-box (non relational DB used in this project mainly to store AG failed transaction locally )
+apply plugin: 'io.objectbox'
+
+apply plugin: "org.sonarqube"
+
+android {
+    //compileSdkVersion 30
+   // buildToolsVersion "30.0.3"
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+    ndkVersion "21.0.6113669"
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        applicationId "com.example.printonpax"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        multiDexEnabled true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        ndk {
+            //abiFilters 'x86', 'x86_64', 'arm', 'armeabi', 'armeabi-v7a','arm64-v8a', "mips"
+            abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a', 'x86', 'mips'
+        }
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['src/main/jniLibs']
+        }
+    }
+
+
+    splits {
+        abi {
+            enable true
+            reset()
+            //include 'x86', 'x86_64', 'arm64-v8a', 'armeabi-v7a', 'armeabi'
+            //include 'armeabi-v7a', 'armeabi'
+            universalApk true
+        }
+    }
+}
+
+repositories {
+    flatDir {
+        dirs 'libs'   // aar directory
+    }
+}
+
+dependencies {
+
+    implementation fileTree(dir: 'libs', include: ['*.jar', '.so'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+
+    implementation 'androidx.appcompat:appcompat:1.3.0'
+    implementation 'com.google.android.material:material:1.3.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    implementation fileTree(dir: 'libs', include: ['*.jar', '.so'])
+    implementation files('libs/NeptuneLiteApi_V3.24.00_20210519.jar')
+    implementation files('libs/hoinSdk-release.aar')
+    implementation files('libs/hoinprinterlib-release.aar')
+
+
+    implementation 'androidx.appcompat:appcompat:1.3.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    //Mockito
+    testImplementation "org.mockito:mockito-core:3.8.0"
+
+
+    implementation 'com.google.android.material:material:1.3.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+
+    // Recommended: Add the Firebase SDK for Google Analytics.
+    implementation 'com.google.firebase:firebase-analytics:19.0.0'
+
+    // Add the Firebase Crashlytics SDK.
+    implementation 'com.google.firebase:firebase-crashlytics:18.0.1'
+
+    //since added firebase and crashlytics, need this as bt sdk exist may be ? (no pb in master and the dif is zing and bt sdk)
+    implementation 'com.android.support:multidex:1.0.3'
+
+    // android support
+    implementation 'com.android.support:design:29.0.0'
+    implementation 'com.android.support:support-v4:29.0.0'
+    implementation 'com.android.support:recyclerview-v7:29.0.0'
+    implementation 'com.android.support:support-annotations:29.0.0'
+    implementation 'com.android.support:preference-v7:29.0.0'
+    implementation 'com.android.support:transition:29.0.0'
+
+    //circleImageView
+    implementation 'com.mikhaellopez:circularimageview:4.1.1'
+    implementation 'de.hdodenhof:circleimageview:3.0.1'
+
+    //Glide
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    implementation 'com.github.bumptech.glide:annotations:4.11.0'
+    implementation('com.github.bumptech.glide:okhttp3-integration:4.0.0') {
+        exclude group: 'glide-parent'
+    }
+
+    //JSON parsing and serializing library
+    //Converter for loganSquare JSON serializer for RetroFit.
+    //logs HTTP request and response data  : could use android's http lib also for this. Retrofit is chosen cuz' is easy
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.9.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.0.2'
+
+    //For progressBar.... Could use android's progress bar instead
+    implementation 'com.kaopiz:kprogresshud:1.2.0'
+
+    //Alert Dialog : MaDialog
+    implementation 'com.github.umairayub79:MaDialog:1.3'
+
+    implementation 'com.auth0.android:jwtdecode:1.1.1'
+
+    implementation 'com.github.stfalcon:smsverifycatcher:0.3.2'
+
+    implementation 'com.tomer:fadingtextview:2.5'
+
+    // gestion des permissions
+    implementation 'com.karumi:dexter:6.2.1'
+
+
+    //For bt printer SDK
+    implementation 'am.util:printer:2.1.0'
+    implementation 'com.inuker.bluetooth:library:1.4.0'
+
+    //QRCOde
+    implementation 'com.google.zxing:core:3.2.1'
+    implementation 'com.journeyapps:zxing-android-embedded:3.2.0@aar'
+
+    //for encrypt
+    implementation 'com.scottyab:aescrypt:0.0.1'
+
+    //PDF Generator
+    implementation 'com.uttampanchasara.pdfgenerator:pdfgenerator:1.3'
+
+    //for testing on fragments
+    debugImplementation "androidx.fragment:fragment-testing:1.3.3"
+
+
+    //implementation "io.objectbox:objectbox-android:2.7.0"
+
+}

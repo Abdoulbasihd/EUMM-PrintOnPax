@@ -1,0 +1,562 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp">
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/a">
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/aa"
+                        android:layout_toLeftOf="@+id/indic_logo"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/bordereau"
+                            android:textSize="13sp"
+                            android:textStyle="bold"
+                            android:layout_marginLeft="10dp"
+                            android:layout_alignParentLeft="true"
+                            android:textColor="@color/colorEU" />
+
+                        <TextView
+                            android:id="@+id/page_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/d_pot_compte_simply"
+                            android:layout_marginLeft="10dp"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:layout_alignParentLeft="true"
+                            android:textColor="@color/colorViolet" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/bb"
+                        android:layout_below="@+id/aa"
+                        android:layout_marginTop="8dp"
+                        android:orientation="horizontal">
+
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="16dp"
+                            android:layout_centerVertical="true"
+                            android:layout_alignParentRight="true"/>
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="EXPRESS UNION"
+                            android:textColor="@color/colorNoir3"
+                            android:layout_centerVertical="true"
+                            android:textSize="12dp"
+                            android:textStyle="bold"/>
+
+
+
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="54dp"
+                        android:layout_height="54dp"
+                        android:id="@+id/indic_logo"
+                        android:layout_alignParentRight="true" />
+
+
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fitsSystemWindows="true"
+                android:layout_below="@+id/a">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <!--Recap dépot compte-->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="10dp"
+                        android:id="@+id/recap_depot_epargne_courant">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/d2"
+                            android:layout_marginLeft="0dp"
+                            android:layout_marginRight="0dp"
+                            android:layout_marginTop="0dp"
+                            android:padding="10dp"
+                            android:orientation="vertical">
+
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/date"
+                                    android:textStyle="bold"
+                                    android:textSize="12dp"
+                                    android:textColor="@color/colorNoir"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="132dp"
+                                    android:text="@string/heure"
+                                    android:textSize="12dp"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/colorNoir"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_marginRight="10dp"
+                                    android:textSize="12dp"
+                                    android:text="@string/n_transaction"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/colorNoir"/>
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text=""
+                                    android:id="@+id/dateFacture"
+                                    android:textSize="12dp"
+                                    android:textColor="@color/colorNoir2"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text=""
+                                    android:id="@+id/heureFacture"
+                                    android:textSize="12dp"
+                                    android:layout_marginLeft="133dp"
+                                    android:textColor="@color/colorNoir2"/>
+
+                                <TextView
+                                    android:id="@+id/transactionNumber"
+                                    android:layout_width="112dp"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="12dp"
+                                    android:layout_marginLeft="20dp"
+                                    android:layout_alignParentRight="true"
+                                    android:textColor="@color/colorNoir2"/>
+
+                            </RelativeLayout>
+
+
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/d1"
+                            android:layout_below="@+id/d2"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginRight="0dp"
+                            android:layout_marginLeft="0dp"
+                            android:layout_marginBottom="230dp"
+                            android:padding="10dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/page_sub_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textStyle="bold"
+                                android:text="@string/depot_compte_simply"
+                                android:textColor="@color/colorNoir"
+                                android:textSize="18dp"/>
+
+
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="16dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/num_ro_de_ref_rence"
+                                    android:textStyle="bold"
+                                    android:id="@+id/ha"
+                                    android:textColor="@color/colorNoir"/>
+
+                                <TextView
+                                    android:id="@+id/reference"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_toRightOf="@+id/ha"
+                                    android:maxLines="2"
+                                    android:gravity="right"
+                                    android:textColor="@color/colorNoir"/>
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/cardNumberLayout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="16dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/num_ro_de_carte"
+                                    android:textStyle="bold"
+                                    android:id="@+id/h1"
+                                    android:textColor="@color/colorNoir"/>
+
+                                <TextView
+                                    android:id="@+id/carteNumber"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_toRightOf="@+id/h1"
+                                    android:maxLines="2"
+                                    android:gravity="right"
+                                    android:textColor="@color/colorNoir"/>
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/accountNumberLayout"
+                                android:visibility="gone"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="16dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/account_number"
+                                    android:textStyle="bold"
+                                    android:id="@+id/accountNumberText"
+                                    android:textColor="@color/colorNoir"/>
+
+                                <TextView
+                                    android:id="@+id/accountNumber"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_toEndOf="@+id/accountNumberText"
+                                    android:layout_toRightOf="@+id/accountNumberText"
+                                    android:maxLines="2"
+                                    android:gravity="right"
+                                    android:textColor="@color/colorNoir"/>
+
+                            </RelativeLayout>
+
+
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Type de dévise :"
+                                    android:id="@+id/h2"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/colorNoir"/>
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/devise"
+                                    android:layout_toRightOf="@+id/h2"
+                                    android:gravity="right"
+                                    android:text=""
+                                    android:textColor="@color/colorNoir"/>
+
+                            </RelativeLayout>
+
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/h3"
+                                    android:text="@string/montant_crediter"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/colorNoir"/>
+
+                                <TextView
+                                    android:id="@+id/amountCredited"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_toRightOf="@+id/h3"
+                                    android:text=""
+                                    android:gravity="right"
+                                    android:textColor="@color/colorNoir"/>
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/frais"
+                                    android:textStyle="bold"
+                                    android:id="@+id/h4"
+                                    android:textColor="@color/colorNoir"/>
+
+                                <TextView
+                                    android:id="@+id/fees"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="right"
+                                    android:layout_toRightOf="@+id/h4"
+                                    android:textColor="@color/colorNoir" />
+
+                            </RelativeLayout>
+
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+
+                                android:layout_marginTop="10dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:text="@string/montant_total"
+                                    android:textColor="@color/colorNoir"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/totalAmount"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:textColor="@color/colorNoir"/>
+
+                            </RelativeLayout>
+
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/h6"
+                                    android:text="@string/nom_de_l_agent"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/colorNoir"/>
+
+                                <TextView
+                                    android:id="@+id/agentName"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_toRightOf="@+id/h6"
+                                    android:maxLines="2"
+                                    android:gravity="right"
+                                    android:textColor="@color/colorNoir"/>
+
+                            </RelativeLayout>
+
+
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Pays de l'agent :"
+                                    android:id="@+id/h7"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/colorNoir"/>
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/pays_agent"
+                                    android:layout_toRightOf="@+id/h7"
+                                    android:gravity="right"
+                                    android:text=""
+                                    android:textColor="@color/colorNoir"/>
+
+                            </RelativeLayout>
+
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="20dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/signature_agent"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/colorNoir"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="73dp"
+                                    android:text="@string/signature_client"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/colorNoir"/>
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+
+
+                    </RelativeLayout>
+
+
+                </RelativeLayout>
+
+
+
+
+            </ScrollView>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="20dp"
+                android:background="@color/colorBlancheS"
+                android:layout_alignParentBottom="true">
+
+
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/print"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/imprimer"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorBlanche"
+                    android:textSize="13dp" />
+
+                <Button
+                    android:id="@+id/btn_terminer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/terminer"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorBlanche"
+                    android:textSize="13dp" />
+
+
+
+
+            </LinearLayout>
+
+
+
+
+        </RelativeLayout>
+
+
+
+
+
+
+    </RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
